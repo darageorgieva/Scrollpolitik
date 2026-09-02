@@ -1,0 +1,13 @@
+.env
+
+.dvc/config.local
+.dvc/tmp
+.dvc/cache
+
+data/
+!data/.gitkeep
+out/
+!out/.gitkeep
+
+__pycache__/
+.venv/
