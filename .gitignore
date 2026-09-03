@@ -4,8 +4,10 @@
 .dvc/tmp
 .dvc/cache
 
-data/
-!data/.gitkeep
+data/mp3/*
+data/mp4/*
+!data/mp3/.gitkeep
+!data/mp4/.gitkeep
 out/
 !out/.gitkeep
 
