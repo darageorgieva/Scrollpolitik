@@ -68,10 +68,10 @@ for i, vid in enumerate(df.itertuples()):
         result = model.transcribe(mp3_path)
         df.loc[vid.Index, "text"] = result["text"]#add the transcription to the dataframe
         print(f"{vid.VidID} -> {result["text"]}")
-    except:
+    except Exception as e:
         bad_video_ids.append(str(vid.VidID))#add video id to list
+        print(f"Exception: {e}")
         print(f"Transcription problems for video {vid.VidID} -> skipping")
-
     #save a backup from time to time
     if vid.Index % CHECKPOINT_INTERVAL == 0:
         df.to_csv(str(current_dir.parent / f"data/videos_transcribed_checkpoint_{i}.csv"))
