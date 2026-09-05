@@ -15,10 +15,6 @@ cd ..   #go to main project directory
 
 source .venv/bin/activate   #activate venv
 
-cd src
-
-#load the ffmpeg module
-module load ffmpeg
-
 echo "Running on $(hostname):"
-python transcribe.py --model tiny --limit 10
+
+ffmpeg -version
