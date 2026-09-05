@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#SBATCH --job-name=gitPull.out        # Job name
+#SBATCH --output=gitPull-%j.out      # Name of output file (%j expands to jobId)
+#SBATCH --cpus-per-task=8        # Schedule cores
+#SBATCH --time=24:00:00          # Run time (hh:mm:ss) - run for one hour max
+#SBATCH --partition=cores_any    # Run on cpu queue
+
+cd ..   #go to main project directory
+
+git pull
+
+echo "Running on $(hostname):"

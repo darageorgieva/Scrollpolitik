@@ -1,5 +1,7 @@
 from pathlib import Path
 import pandas as pd
+import requests
+import time
 
 current_dir = Path(__file__).resolve().parent
 metadata_file_path = current_dir.parent / "data/video_metadata.jsonl"
@@ -44,3 +46,17 @@ output_df.rename(columns={"Partei":"party"}, inplace=True)
 print(output_df.head())
 
 output_df.to_csv(out_path, index=False)
+print(f"Wrote the dataframe to {str(out_path)}")
+
+##  the following is only debug code used to work with the austria data (cuz that's what I have right now for testing)
+
+# account_person_mapping_df = pd.read_csv((current_dir.parent / "data/account_person_mapping_debug.csv"))
+
+# account_person_mapping_df = account_person_mapping_df[["party", "tiktok_username"]]
+
+# output_df = pd.merge(metadata_df, account_person_mapping_df, left_on="UserID", right_on="tiktok_username", how="left")
+# output_df = output_df.drop(columns=["tiktok_username"])#don't need to keep duplicate column
+
+# print(output_df.head())
+
+# output_df.to_csv(out_path, index=False)
