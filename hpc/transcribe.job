@@ -18,7 +18,9 @@ source .venv/bin/activate   #activate venv
 cd src
 
 #load the ffmpeg module
-module load ffmpeg
+module load FFmpeg/6.0-GCCcore-12.3.0
+which ffmpeg
+ffmpeg -version
 
 echo "Running on $(hostname):"
 python transcribe.py --model tiny --limit 10
