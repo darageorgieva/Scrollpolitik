@@ -18,10 +18,11 @@ source .venv/bin/activate   #activate venv
 cd src
 
 #load the ffmpeg module
-module load FFmpeg/6.0-GCCcore-12.3.0
-which ffmpeg
-ffmpeg -version
+#module load FFmpeg/6.0-GCCcore-12.3.0
+#which ffmpeg
+#ffmpeg -version
 
+cd ..
 cd data/mp3
 ls
 ffmpeg -i 7676439040035441952.mp3 -f null -
