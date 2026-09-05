@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#SBATCH --job-name=extract_audio        # Job name
+#SBATCH --output=extract_audio-%j.out      # Name of output file (%j expands to jobId)
+#SBATCH --cpus-per-task=8        # Schedule one core
+#SBATCH --time=24:00:00          # Run time (hh:mm:ss) - run for one hour max
+#SBATCH --partition=cores_any   # this is just a cpu task
+#SBATCH --nodelist=cn[19]       #request a node with new cpu, hopefully that works with ffmpeg
+
+module load FFmpeg/6.0-GCCcore-12.3.0
+
+cd ..   #go to main project directory
+
+cd src
+
+echo "Running on $(hostname):"
+./extractAudio.sh

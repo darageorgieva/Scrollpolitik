@@ -30,14 +30,16 @@ import pandas as pd
 
 ap = argparse.ArgumentParser()
 
-ap.add_argument("--metadat", default="video_metadata_media_type.csv")
-ap.add_argument("--out", default="videos_transcribed.csv")
+ap.add_argument("--metadat", default="video_metadata_media_type.csv",
+                help="filename for the video metadata dataframe (csv)")
+ap.add_argument("--out", default="videos_transcribed.csv",
+                help="filename for the dataframe with the transcriptions (csv). Will be placed in /data.")
 ap.add_argument("--limit", type=int, default=None,
                 help="only transcribe the first N videos to test functionality")
 ap.add_argument("--model", default="turbo",
-                help="Available values: tiny, base, small, medium, large, turbo")
+                help="Available models: tiny, base, small, medium, large, turbo")
 ap.add_argument("--chkpt_itv", type=int, default=100,
-                help="interval for checkpoints of all current transcriptions.")
+                help="interval for regular checkpoints of all current transcriptions.")
 
 args = ap.parse_args()
 
