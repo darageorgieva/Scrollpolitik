@@ -17,9 +17,12 @@ Usage:
 python transcribe.py --metadat video_metadata_media_type.csv --out videos_transcribed.csv --model turbo --chkpt_itv 100
 python transcribe.py --model tiny --limit 10
 
-Requires: pip install torch, pandas, openai-whisper
+Requires: pip install torch, pandas, openai-whisper, static-ffmpeg
 
 """
+
+import static_ffmpeg
+static_ffmpeg.add_paths()#add ffmpeg binaries to PATH for current process (the system ffmpeg on hpc doesn't seem to work)
 import argparse
 import whisper
 from pathlib import Path
