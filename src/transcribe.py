@@ -50,7 +50,7 @@ df["text"] = ""#add empty column for transcriptions
 
 #if a limit for debugging is enabled: only process the first N rows
 if args.limit:
-    df = df.head(limit)
+    df = df.head(args.limit)
 
 print(df.head())
 
